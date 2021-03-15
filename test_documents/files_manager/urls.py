@@ -25,6 +25,6 @@ urlpatterns = [
     path('in_work', views.in_work, name='in_work'),
     path('outdated', views.outdated, name='outdated'),
     # -------- для выгрзки файлов ----------------------------
-    path('post/', CreatePostView.as_view(), name='add_post')
+    path('post', CreatePostView.as_view(), name='post')
     # ---------------------------------------------------------
 ]
