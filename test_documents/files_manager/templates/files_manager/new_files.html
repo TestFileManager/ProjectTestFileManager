@@ -19,5 +19,15 @@
         <a href="{% url 'post' %}" class="btn btn-primary my-2">Загрузка файла на сайт</a>
     </div>
 </div>
+    {% if posts %}
+        {% for el in posts %}
+            <div class="alert alert-info mt-2">
+                <h6> Файл ID {{ el.id }}<h5> Описание: {{ el.title }}</h5></h6>
+                <p> {{ el.post }}  </p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1 class="text-center mt-10">Мы дегроды и не делаем никаких файлов!</h1>
+    {% endif %}
 {% endblock %}
 

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path, include
 from . import views
-from .views import HomePageView,CreatePostView
+from .views import HomePageView, CreatePostView
 
 urlpatterns = [
     path('', views.index, name='main_page'),
