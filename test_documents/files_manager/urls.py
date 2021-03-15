@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.urls import path, include
 from . import views
+from .views import HomePageView,CreatePostView
 
 urlpatterns = [
     path('', views.index, name='main_page'),
@@ -22,5 +23,8 @@ urlpatterns = [
     path('new_files', views.new_files, name='new_files'),
     path('on_check', views.on_check, name='on_check'),
     path('in_work', views.in_work, name='in_work'),
-    path('outdated', views.outdated, name='outdated')
+    path('outdated', views.outdated, name='outdated'),
+    # -------- для выгрзки файлов ----------------------------
+    path('post/', CreatePostView.as_view(), name='add_post')
+    # ---------------------------------------------------------
 ]

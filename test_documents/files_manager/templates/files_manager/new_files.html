@@ -14,5 +14,11 @@
 <!-- Основной контент в header -->
 {% block content %}
     <h1>New Files</h1>
+<h1>Загрузка файла на сайт</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Загрузить файл</button>
+</form>
 {% endblock %}
 
