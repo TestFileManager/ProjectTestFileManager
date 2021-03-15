@@ -16,9 +16,9 @@ def index(request):
     return render(request, 'files_manager/index.html')
 
 
-def new_files(request):
-    # подключаем HTML шаблон для главной страницы
-    return render(request, 'files_manager/new_files.html')
+# def new_files(request):
+#     # подключаем HTML шаблон для главной страницы
+#     return render(request, 'files_manager/new_files.html')
 
 
 def on_check(request):
@@ -48,4 +48,9 @@ class CreatePostView(CreateView):
     form_class = PostForm
     template_name = "files_manager/post.html"
     success_url = reverse_lazy("new_files")
+
+
+def new_files(request):
+    posts = Post.objects.all()
+    return render(request, 'files_manager/new_files.html', {'title': 'Post Page', 'posts': posts})
 # -----------------------------------------------------
