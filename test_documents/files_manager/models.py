@@ -8,4 +8,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    # Меняем название таблицы в Админ Панеле
+    class Meta:
+        verbose_name = 'Файл'
+        verbose_name_plural = 'Файлы'
 # ----------------------------------------------
