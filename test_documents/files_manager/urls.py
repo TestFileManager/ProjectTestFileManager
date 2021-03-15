@@ -17,10 +17,10 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='main_page'),
-    path('', include('task_manager.urls'), name='task_manager'),
+    path('main_page', views.index, name='main_page'),
+    path('task_manager', include('task_manager.urls'), name='task_manager'),
     path('new_files', views.new_files, name='new_files'),
     path('on_check', views.on_check, name='on_check'),
     path('in_work', views.in_work, name='in_work'),
-    path('outdated', views.outdated, name='outdated')
+    path('outdated', views.outdated, name='outdated'),
 ]
