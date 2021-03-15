@@ -7,17 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %} {% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style type="text/css">
+        .bg-cosmos-blue{
+            background-color:#483D8B;
+        }
+        .border-bottom-cosmos{
+            border-bottom:1px solid #9370DB!important;
+        }
+    </style>
 </head>
-<body>
-    <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
+<body class="bg-dark text-white">
+    <header class="text-white d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom-cosmos shadow-sm">
       <p class="h5 my-0 me-md-auto fw-normal">{% block main_page_name %} {% endblock %}</p>
       <nav class="my-2 my-md-0 me-md-3">
-        <a class="p-2 text-dark" href="{% url 'main_page' %}">Main</a>
-        <a class="p-2 text-dark" href="{% url 'task' %}">Task Manager</a>
-        <a class="p-2 text-dark" href="{% url 'new_files' %}">New File</a>
-        <a class="p-2 text-dark" href="{% url 'on_check' %}">On Check</a>
-        <a class="p-2 text-dark" href="{% url 'in_work' %}">In Work</a>
-        <a class="p-2 text-dark" href="{% url 'outdated' %}">Outdated</a>
+        <a class="btn btn-light" href="{% url 'main_page' %}">Main</a>
+        <a class="btn btn-light" href="{% url 'task' %}">Task Manager</a>
+        <a class="btn btn-light" href="{% url 'new_files' %}">New File</a>
+        <a class="btn btn-light" href="{% url 'on_check' %}">On Check</a>
+        <a class="btn btn-light" href="{% url 'in_work' %}">In Work</a>
+        <a class="btn btn-light" href="{% url 'outdated' %}">Outdated</a>
+        <span class="btn btn-warning">{{request.user}}</span>
+        <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
       </nav>
     </header>
     <div class="container">
