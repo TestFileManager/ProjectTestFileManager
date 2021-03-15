@@ -13,12 +13,11 @@
 
 <!-- Основной контент в header -->
 {% block content %}
-    <h1>New Files</h1>
-<h1>Загрузка файла на сайт</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Загрузить файл</button>
-</form>
+    <h1>New File</h1>
+<div class="row">
+    <div class="col-md-2 offset-md-10">
+        <a href="{% url 'post/' %}" class="btn btn-primary my-2">Загрузка файла на сайт</a>
+    </div>
+</div>
 {% endblock %}
 
