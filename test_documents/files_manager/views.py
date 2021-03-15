@@ -40,12 +40,12 @@ def outdated(request):
 
 class HomePageView(ListView):
     model = Post
-    template_name = "files_manager/new_files.html"
+    template_name = "files_manager/post.html"
 
 
 class CreatePostView(CreateView):
     model = Post
     form_class = PostForm
     template_name = "files_manager/post.html"
-    success_url = reverse_lazy("files_manager/new_files.html")
+    success_url = reverse_lazy("new_files")
 # -----------------------------------------------------
