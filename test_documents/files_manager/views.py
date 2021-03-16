@@ -60,6 +60,12 @@ class CreatePostView(CreateView):
     template_name = "files_manager/post.html"
     success_url = reverse_lazy("new_files")
 # -----------------------------------------------------
+def delete_f(request, pk):
+    if request.method == "POST":
+        file = Post.objects.get(pk=pk)
+        file.delete()
+    return redirect("new_files")
+
 
 def new_files(request):
     if request.user.is_authenticated:

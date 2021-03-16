@@ -21,7 +21,14 @@
     {% if posts %}
         {% for el in posts %}
             <div class="alert bg-cosmos-blue mt-2">
-                <h6> Файл ID {{ el.id }}<h5> Описание: {{ el.comment }}</h5></h6>
+                <h6> Файл ID {{ el.id }}<h5> Описание: {{ el.comment }}</h5>
+                    <a href="{{el.upload.url}}" class="btn btn-primary my-2" download> {{ el.upload.name|slice:"20:" }} </a>
+                    <form method="post" action="{% url 'delete_f' el.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary my-2" > delete</button>
+                    </form>
+
+                </h6>
                 <p> {{ el.post }}  </p>
             </div>
         {% endfor %}

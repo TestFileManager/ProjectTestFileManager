@@ -16,6 +16,8 @@ Including another URLconf
 from django.urls import path, include
 from . import views
 from .views import HomePageView, CreatePostView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('main_page', views.index, name='main_page'),
@@ -26,4 +28,5 @@ urlpatterns = [
     path('outdated', views.outdated, name='outdated'),
     # -------- для выгрзки файлов ----------------------------
     path('post', CreatePostView.as_view(), name='post'),
-]
+    path('new_files<int:pk>/', views.delete_f, name='delete_f'),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
