@@ -28,5 +28,6 @@ urlpatterns = [
     path('outdated', views.outdated, name='outdated'),
     # -------- для выгрзки файлов ----------------------------
     path('post', CreatePostView.as_view(), name='post'),
+    # -------- Delete File -----------------------------------
     path('new_files<int:pk>/', views.delete_f, name='delete_f'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
