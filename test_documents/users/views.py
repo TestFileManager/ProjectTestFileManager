@@ -7,6 +7,7 @@ from .forms import CreateUserForm
 
 
 
+
 def registerPage(request):
     form = CreateUserForm()
     #перемменая для ошибки
@@ -51,6 +52,7 @@ def loginPage(request):
 
     context = {}
     return render(request, 'users/loginpage.html', context)
+
 
 def logoutUser(request):
     logout(request)

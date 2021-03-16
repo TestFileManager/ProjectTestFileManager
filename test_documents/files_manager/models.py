@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 # ------ модель для загрузки файлов ----------
 class Post(models.Model):
-    comment = models.CharField(max_length= 200)
+    comment = models.CharField(max_length= 200, null=True)
     upload = models.FileField(upload_to="file_manager_upload/")
 
 #-------- Delete file ----------------------------
