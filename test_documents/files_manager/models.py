@@ -7,7 +7,7 @@ class Post(models.Model):
     upload = models.FileField(upload_to="file_manager_upload/")
 
     def __str__(self):
-        return self.title
+        return self.comment
 
     # Меняем название таблицы в Админ Панеле
     class Meta:
