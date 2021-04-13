@@ -13,6 +13,52 @@
 
 <!-- Основной контент в header -->
 {% block content %}
-    <h1>Outdated</h1>
+<div class="row">
+    <div class="col-md-2 offset-md-10">
+        <a href="{% url 'post' %}" class="btn btn-primary my-2">Download File</a>
+    </div>
+</div>
+    {% if posts %}
+        {% for el in posts %}
+            <div class="alert bg-cosmos-blue mt-2">
+                <h6> Файл ID {{ el.id }}<h5> Описание: {{ el.comment }}</h5><h5>Стадия: {{ el.stage }}</h5>
+
+<!--                    #---------------Download to PC file-->
+                    <a href="{{el.upload.url}}" class="btn btn-primary mt-2" download> {{ el.upload.name|slice:"20:" }} </a>
+
+<!--                    #--------------------------------->
+
+                      <div id="move" class="move-content" style="display:flex; justify-content:space-around">
+                          <form method="post" action="{% url 'move_to_new_files' el.pk %}">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-light mt-2 " > New File </button>
+                          </form>
+                        <form method="post" action="{% url 'move_to_on_check' el.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-light mt-2 " > On Check </button>
+                        </form>
+                        <form method="post" action="{% url 'move_to_in_work' el.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-light mt-2 " > In Work </button>
+                        </form>
+                         <form method="post" action="{% url 'move_to_outdated' el.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-light mt-2 " > Outdated </button>
+                        </form>
+
+                      </div>
+<!--                    #---------------Delete file----->
+                    <form method="post" action="{% url 'delete_f' el.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger mt-2 " > delete</button>
+                    </form>
+                </h6>
+                <p> {{ el.post }}  </p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1 class="text-center mt-10">Мы дегроды и не делаем никаких файлов!</h1>
+    {% endif %}
 {% endblock %}
+
 
