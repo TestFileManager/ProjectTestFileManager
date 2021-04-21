@@ -17,12 +17,6 @@ def index(request):
         return redirect('login')
 
 
-
-# def new_files(request):
-#     # подключаем HTML шаблон для главной страницы
-#     return render(request, 'files_manager/new_files.html')
-
-
 def new_files(request):
     if request.user.is_authenticated:
         posts = []

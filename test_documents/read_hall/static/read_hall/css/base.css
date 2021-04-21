@@ -1,0 +1,47 @@
+body {
+    background: url('../background.jpg');
+    background-size: 100%;
+    color: white;
+}
+.top_bar {
+    background: url('../background1.jpg');
+    background-size: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    border-bottom: 3px solid black;
+
+}
+.top-b {
+    color:white;
+    text-decoration: none;
+}
+.book-shelf{
+    display: flex;
+    margin: 0% 15% 0% 15%;
+    width: 70%;
+    border-left: 7px double black;
+    border-right: 7px double white;
+    border-top: 2px double white;
+    border-bottom: 2px double black;
+    border-radius: 12%;
+    padding: 3% 0% 3% 0%;
+
+}
+.el-book{
+    width: 14%;
+    height: 168px;
+    display: inline-block;
+    text-align: center;
+    background: url('../cover-book.jpg');
+    background-size: 100%;
+    color: black;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 10%;
+}
+.img-book{
+    border-radius: 10%;
+    width: 114px;
+    height: 128px;
+}
