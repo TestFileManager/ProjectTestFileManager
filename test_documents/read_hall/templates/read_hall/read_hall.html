@@ -15,9 +15,9 @@
 {% block content %}
 
     <div class="top_bar">
-        <h4><button class="btn btn-primary my-2"><a class="top-b" href="/">На Главную</a></button></h4>
+        <h4 class="top-b"><button class="btn btn-primary my-2"><a class="top-b" href="/">На Главную</a></button></h4>
         <h4 class="top-b">welcome to my library</h4>
-        <h4><button class="btn btn-primary my-2"><a class="top-b" href="add_book">Добавить новую книгу</a></button></h4>
+        <h4 class="top-b"><button class="btn btn-primary my-2"><a class="top-b" href="add_book">Добавить новую книгу</a></button></h4>
     </div>
     <div class="book-shelf">
         {% if book %}
@@ -26,7 +26,7 @@
             <a href="{{ elb.id }}">
                 <div class="el-book">
                     <h5>  <img class="img-book" src="{{ elb.cover.url }}"></h5>
-                    <h5>{{ elb.name }}</h5>
+                    <h6>{{ elb.name|slice:":25" }}</h6>
                 </div>
             </a>
             {% endfor %}

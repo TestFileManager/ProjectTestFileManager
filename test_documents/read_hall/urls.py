@@ -25,7 +25,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.r_h_i, name='home'),
-    path('add_book', BookView.as_view(), name='add_book')
+    path('add_book', BookView.as_view(), name='add_book'),
+    path('<int:pk>', views.BookDetail.as_view(), name='book_detail'),
+    path('book_detail/<int:tk>', views.delete_book, name='delete_book'),
+    path('book_detail/<int:rk>', views.read_book, name='read_book'),
 ]
 
 # -----------------------------------------------------

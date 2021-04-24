@@ -50,7 +50,6 @@ def on_check(request):
         return redirect('login')
 
 
-
 def in_work(request):
     # подключаем HTML шаблон для главной страницы
     if request.user.is_authenticated:
@@ -68,7 +67,6 @@ def in_work(request):
         return redirect('login')
 
 
-
 def outdated(request):
     if request.user.is_authenticated:
         posts = []
@@ -84,9 +82,9 @@ def outdated(request):
     else:
         return redirect('login')
 
-
-
 # ---- для выгрузки файлов ---------------------------
+
+
 class CreatePostView(CreateView):
     model = Post
     form_class = PostForm
@@ -94,6 +92,8 @@ class CreatePostView(CreateView):
     success_url = reverse_lazy("new_files")
 # -----------------------------------------------------
 # -------------------DELETE FILE ----------------------
+
+
 def delete_f(request, pk):
     if request.method == "POST":
         file = Post.objects.get(pk=pk)
