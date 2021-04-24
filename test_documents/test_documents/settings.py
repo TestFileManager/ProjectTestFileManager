@@ -43,7 +43,8 @@ INSTALLED_APPS = [
 
     'files_manager',
     'task_manager',
-    'users'
+    'users',
+    'read_hall'
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # -------- Добавленно Саней по гайду для выгрузки файлов ---------------
 MEDIA_URL = "/media/"

@@ -14,5 +14,4 @@ class PostForm(forms.ModelForm):
                 "class": "display_none"
             })
         }
-
 # ------------------------------------

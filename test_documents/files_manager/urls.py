@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path, include
 from . import views
-from .views import HomePageView, CreatePostView
+from .views import CreatePostView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -29,5 +29,10 @@ urlpatterns = [
     # -------- для выгрзки файлов ----------------------------
     path('post', CreatePostView.as_view(), name='post'),
     # -------- Delete File -----------------------------------
-    path('new_files<int:pk>/', views.delete_f, name='delete_f'),
+    path('new_files/<int:pk>', views.delete_f, name='delete_f'),
+    # -------- Move File -------------------------------------
+    path('move_to_new_files/<int:pk>', views.move_to, name='move_to_new_files'),
+    path('move_to_on_check/<int:pk>', views.move_to, name='move_to_on_check'),
+    path('move_to_in_work/<int:pk>', views.move_to, name='move_to_in_work'),
+    path('move_to_outdated/<int:pk>', views.move_to, name='move_to_outdated'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

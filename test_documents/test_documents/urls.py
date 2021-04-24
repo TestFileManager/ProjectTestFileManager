@@ -24,8 +24,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('files_manager.urls')),
-    path('', include('users.urls'))
-]
+    path('', include('users.urls')),
+    path('read_hall/', include('read_hall.urls'))
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # -- для выгрузки файлов в режиме дебаг -----------------------------
 if settings.DEBUG:

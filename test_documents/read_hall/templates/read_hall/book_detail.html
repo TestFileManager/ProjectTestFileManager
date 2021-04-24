@@ -1,0 +1,63 @@
+<!-- Наследуем основной шаблон от base.html -->
+{% extends 'read_hall/base.html' %}
+
+<!-- Называем Title страницы -->
+{% block title %}
+  {{ book.name }}
+{% endblock %}
+
+<!-- Название страницы в header -->
+{% block main_page_name %}
+  <h1>{{ book.name }}</h1>
+{% endblock %}
+
+<!-- Основной контент в header -->
+{% block content %}
+  <div class="top_bar">
+    <div class="top-b">
+      <h4 class="top-b"><button class="btn btn-primary my-2"><a class="top-b" href="/">На Главную</a></button></h4>
+      <h4 class="top-b"><button class="btn btn-primary my-2"><a class="top-b" href="{% url 'home' %}">Назад</a></button></h4>
+    </div>
+    <div class="top-b-n">
+      <h4 class="top-b-n">welcome to my library</h4>
+      <h4 class="top-b-n">Книга: {{ book.name }}</h4>
+    </div>
+    <h4 class="top-b"><button class="btn btn-primary my-2"><a class="top-b" href="add_book">Добавить новую книгу</a></button></h4>
+  </div>
+
+  <div class="previews">
+    <div>
+      <div class="book-view-img">
+        <img class="book-view-img-img" src="{{ book.cover.url }}">
+      </div>
+
+      <div class="book-view-author"><p><h4>Автор: {{ book.author }}</h4></p></div>
+    </div>
+
+    <div class='book-view-text'>
+      <div class="border-left"></div>
+      <p class='book-view-text1'>{{ book.description }}</p>
+      <div class="border-right"></div>
+    </div>
+
+    <div class="book-view-button">
+      <button class="btn btn-success"><a class="book-view-button" href="{{ book.file.url }}">Читать</a></button>
+      <form method="post" action="{% url 'delete_book' book.pk %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger m-2">Удалить</button>
+      </form>
+
+    </div>
+
+
+
+
+
+
+
+    <!-- {{ book.short_description }} {{ book.description }} file = models.FileField('Книга', upload_to="file_read_hall/") -->
+
+  </div>
+{% endblock %}
+
+

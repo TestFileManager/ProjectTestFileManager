@@ -1,0 +1,40 @@
+<!-- Наследуем основной шаблон от base.html -->
+{% extends 'read_hall/base.html' %}
+
+<!-- Называем Title страницы -->
+{% block title %}
+    Read Hall
+{% endblock %}
+
+<!-- Название страницы в header -->
+{% block main_page_name %}
+    Read Hall
+{% endblock %}
+
+<!-- Основной контент в header -->
+{% block content %}
+
+    <div class="top_bar">
+        <h4 class="top-b"><button class="btn btn-primary my-2"><a class="top-b" href="/">На Главную</a></button></h4>
+        <h4 class="top-b">welcome to my library</h4>
+        <h4 class="top-b"><button class="btn btn-primary my-2"><a class="top-b" href="add_book">Добавить новую книгу</a></button></h4>
+    </div>
+    <div class="book-shelf">
+        {% if book %}
+        <div class="view_book">
+            {% for elb in book %}
+            <a href="{{ elb.id }}">
+                <div class="el-book">
+                    <h5>  <img class="img-book" src="{{ elb.cover.url }}"></h5>
+                    <h6>{{ elb.name|slice:":25" }}</h6>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <h4>Тут пока пусто</h4>
+        {% endif %}
+    </div>
+{% endblock %}
+
+

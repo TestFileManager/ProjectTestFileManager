@@ -1,0 +1,40 @@
+<!-- Наследуем основной шаблон от base.html -->
+{% extends 'read_hall/base.html' %}
+
+<!-- Называем Title страницы -->
+{% block title %}
+    ADD BOOK
+{% endblock %}
+
+<!-- Название страницы в header -->
+{% block main_page_name %}
+    ADD BOOK
+{% endblock %}
+
+<!-- Основной контент в header -->
+{% block content %}
+    <h1 class="form-add-book">ADD BOOK</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-add-book">
+            <div class="form-add-book-style"><h6>Название</h6>{{ form.name }}</div><br>
+            <div class="form-add-book-style"><h6>Краткое описание</h6>{{ form.short_description }}</div><br>
+            <div class="form-add-book-style"><h6>Описание</h6>{{ form.description }}</div><br>
+            <div class="form-add-book-style"><h6>Автор</h6>{{ form.author }}</div><br>
+            <div class="form-add-book1">
+                <div class="form-add-book2">
+                    <div class="form-add-book-style">
+                        <h6>Обложка</h6>
+                        {{ form.cover }}
+                    </div>
+                </div><div class="form-add-book2">
+                    <div class="form-add-book-style">
+                        <h6>Книга</h6>
+                        {{ form.file }}
+                    </div>
+                </div>
+            </div><br>
+            <div><button type="submit" class="btn btn-success mt-2"> Загрузить книгу </button></div>
+        </div>
+    </form>
+{% endblock %}
