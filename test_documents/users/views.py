@@ -2,19 +2,19 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .forms import CreateUserForm
+from .forms import CustomUserCreationForm
 
 
 
 
 
 def registerPage(request):
-    form = CreateUserForm()
+    form = CustomUserCreationForm()
     #перемменая для ошибки
     error = ''
     # Отслеживать добавление данных в БД
     if request.method == 'POST':
-        form = CreateUserForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')

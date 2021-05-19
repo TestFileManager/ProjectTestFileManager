@@ -43,8 +43,8 @@ INSTALLED_APPS = [
 
     'files_manager',
     'task_manager',
-    'users',
-    'read_hall'
+    'read_hall',
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [
@@ -135,3 +135,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # -----------------------------------------------------------------------
+#Добавлено Виталей чтобы юзеров нормальных создавать -----
+AUTH_USER_MODEL = 'users.CustomUser'
+#---------------------------------------------------------
