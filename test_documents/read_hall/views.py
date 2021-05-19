@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 from django.urls import reverse_lazy
 from .forms import BookForm
 from .models import Book
@@ -22,6 +22,13 @@ class BookDetail(DetailView):
     model = Book
     template_name = "read_hall/book_detail.html"
     context_object_name = 'book'
+
+
+class Update_Book(UpdateView):
+    model = Book
+    template_name = "read_hall/add_book.html"
+    form_class = BookForm
+    success_url = reverse_lazy("home")
 
 
 def r_h_i(request):

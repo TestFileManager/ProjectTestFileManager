@@ -20,6 +20,9 @@ class Book(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return f'/read_hall/{self.id}'
+
 
 class Meta:
     verbose_name = 'Книга'
