@@ -41,7 +41,8 @@
     </div>
 
     <div class="book-view-button">
-      <button class="btn btn-success"><a class="book-view-button" href="{{ book.file.url }}">Читать</a></button>
+      <button class="btn btn-success m-2"><a class="book-view-button" href="{{ book.file.url }}">Читать</a></button>
+      <button class="btn btn-success m-2"><a class="book-view-button" href="{% url 'update_book' book.pk %}">Редактировать</a></button>
       <form method="post" action="{% url 'delete_book' book.pk %}">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger m-2">Удалить</button>
