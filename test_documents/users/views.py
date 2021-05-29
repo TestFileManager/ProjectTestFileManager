@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import CustomUserCreationForm
-
+from .models import CustomUser
 
 def registerPage(request):
     form = CustomUserCreationForm()
@@ -56,12 +56,7 @@ def logoutUser(request):
     return redirect('login')
 
 
-def users_list(request):
-    users_list = CustomUserCreationForm.objects.all()
-
-    context = {
-            "title": "ListUser",
-            "users_list": users_list,
-        }
-    return render(request, 'users/user_list.html', context)
+def users(request):
+    people = CustomUser.objects.all()
+    return render(request, 'users/user_list.html', {"people": people})
 

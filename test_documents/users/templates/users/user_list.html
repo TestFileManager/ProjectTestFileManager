@@ -2,13 +2,17 @@
 {% extends 'files_manager/base.html' %}
 
 {% block content %}
+ <div class="row">
+   <div class="col-md-2 offset-md-10">
+     <a href="{% url 'register' %}" class="btn btn-primary my-2">Create User</a>
+   </div>
+ </div>
+ <table>
+   <tr><th>Id</th><th>Username</th></tr>
+   {% for i in people %}
+   <tr><td>{{ people.id }}</td><td>{{ people.username }}</td></tr>
+   {% endfor %}
+ </table>
 
-<ul>
-  {% for user in object_list %}
-    <li class="user">{{ user }}</li>
-  {% endfor %}
-</ul>
-
-{% endfor %}
 
 {% endblock content %}
