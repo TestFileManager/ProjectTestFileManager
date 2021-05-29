@@ -5,9 +5,6 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import CustomUserCreationForm
 
 
-
-
-
 def registerPage(request):
     form = CustomUserCreationForm()
     #перемменая для ошибки
@@ -58,4 +55,13 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+
+def users_list(request):
+    users_list = CustomUserCreationForm.objects.all()
+
+    context = {
+            "title": "ListUser",
+            "users_list": users_list,
+        }
+    return render(request, 'users/user_list.html', context)
 

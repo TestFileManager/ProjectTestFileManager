@@ -119,5 +119,3 @@ def move_to(request, pk):
 
 
 
-
-

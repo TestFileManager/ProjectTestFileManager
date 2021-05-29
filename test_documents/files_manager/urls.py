@@ -26,6 +26,7 @@ urlpatterns = [
     path('on_check', views.on_check, name='on_check'),
     path('in_work', views.in_work, name='in_work'),
     path('outdated', views.outdated, name='outdated'),
+    path('users_list', include('users.urls'), name='user_list'),
     # -------- для выгрзки файлов ----------------------------
     path('post', CreatePostView.as_view(), name='post'),
     # -------- Delete File -----------------------------------

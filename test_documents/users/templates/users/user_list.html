@@ -1,0 +1,14 @@
+<!-- Наследуем основной шаблон от base.html -->
+{% extends 'files_manager/base.html' %}
+
+{% block content %}
+
+<ul>
+  {% for user in object_list %}
+    <li class="user">{{ user }}</li>
+  {% endfor %}
+</ul>
+
+{% endfor %}
+
+{% endblock content %}
