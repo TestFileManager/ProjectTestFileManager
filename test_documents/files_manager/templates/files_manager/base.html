@@ -84,6 +84,7 @@
 
 
         <span class="btn btn-warning">{{request.user.username}}</span>
+        <a class="btn btn-info" href="{% url 'register' %}">Create User</a>
         <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
       </nav>
     </header>

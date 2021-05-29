@@ -12,4 +12,39 @@ class CustomUser(AbstractUser):
 
     # Метод для отображения в админ панели
     def __str__(self):
-        return self.username
+        return self.id
+
+
+class Role(models.Model):
+    id = models.AutoField(primary_key=True, unique=True)
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.id
+
+
+class RoleUsers(models.Model):
+    id = models.AutoField(primary_key=True, unique=True)
+    user_id = models.ForeignKey(CustomUser, null=False, on_delete=models.CASCADE)
+    role_id = models.ForeignKey(Role, null=False, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.id
+
+
+class Team(models.Model):
+    id = models.AutoField(primary_key=True, unique=True)
+    name = models.CharField(max_length=20)
+    team_lead_id = models.IntegerField()
+
+    def __str__(self):
+        return self.id
+
+
+class TeamUsers(models.Model):
+    id = models.AutoField(primary_key=True, unique=True)
+    team_id = models.ForeignKey(Team, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.id
