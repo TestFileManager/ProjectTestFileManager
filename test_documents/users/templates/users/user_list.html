@@ -10,7 +10,14 @@
  <table>
    <tr><th>Id</th><th>Username</th></tr>
    {% for i in people %}
-   <tr><td>{{ people.id }}</td><td>{{ people.username }}</td></tr>
+     <tr>
+         <td>
+             <p>{{ people }}</p>
+         </td>
+         <td>
+             <p>{{ people.username }}</p>
+         </td>
+     </tr>
    {% endfor %}
  </table>
 
